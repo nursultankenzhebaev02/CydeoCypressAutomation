@@ -15,5 +15,18 @@ describe('Context: My first test', () => {
             expect(list).to.have.length(2);
             expect(item).to.attr("type");
         })
+
+        //By attribute name
+        cy.get('[type]');
+
+        //By className
+        cy.get('.btn.btn-primary');
+
+        //By ID
+        cy.get('#wooden_spoon');
+
+        //If I want to use text: no xpath in cypress, but it still possible with a different approach
+        cy.get('button').should('contain', 'Login').click();
+
     })
 })
