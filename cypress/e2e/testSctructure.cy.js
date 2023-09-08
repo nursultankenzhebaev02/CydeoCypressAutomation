@@ -17,7 +17,7 @@ describe('Context: My first test', () => {
     it('Opening a web application', () => {
         cy.visit('/registration_form');
     })
-    it('Test 2', () => {
+    it.skip('Test 2', () => {
         expect(false).to.equal(false);
     })
     it('Test 3', () => {
