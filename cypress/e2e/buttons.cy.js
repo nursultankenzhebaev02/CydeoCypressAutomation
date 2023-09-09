@@ -33,5 +33,8 @@ describe('Context: My first test', () => {
             cy.contains('Clicked on button four!').should('be.visible');
          }
         })
+
+        //npx cypress run --headless -b chrome ----- to run all 3 test cases
+
     })
 })
