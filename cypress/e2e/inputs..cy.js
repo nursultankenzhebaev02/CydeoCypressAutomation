@@ -43,7 +43,42 @@ describe("Input Forms Tests", () => {
         cy.wrap(radio).eq(2).should('not.be.checked');
     }))
   })
+  it.skip('Check selection of a single choise from a select dropdown', () => {
+    
+    //Assert that dropdown is selected
+    //cy.get('select[name="department"]').contains("Department of Engineering");
+    //Select one element 
+    cy.get('select[name="job_title"]').select("SDET");
+    //Assert that dropdown has correct text after selecting
+    cy.get('select[name="job_title"]').contains("SDET");
+  })
 
+  it.skip("Check different checkboxes actions", () => {
+    //Get all checkboxes, select and verify
+    cy.get('[type="checkbox"]').then((checkboxes) => {
+    cy.wrap(checkboxes).eq(1).check().should('be.checked');
+    //Uncheck JAVA
+    cy.wrap(checkboxes).eq(1).uncheck().should('not.be.checked');
+    //Verify third one has a value JavaScript and then check and verify
+    cy.wrap(checkboxes).eq(2).should('have.value', 'javascript').check().should('be.checked');
+})
+
+  })
+  it("Check selection of all select dropdown options", () => {
+    //We will provide our test data fixtures folder as JSON object, then data to verify select values
+    cy.fixture('department').then((departments) => {
+      //Get all options in the menu, iterate through these options one by one
+    cy.get('select[name="department"] > option').each((option, index) => {
+    // Get each option text
+    const optionText = option.text();
+    //cy.log(optionText);
+    //cy.log(index);
+    //cy.log(departments[index]);
+    cy.get('select[name="department"]').select(optionText).should('have.value', option.val())
+    .contains(departments[index]);
+  })
+    })
+  })
   
 
 });
