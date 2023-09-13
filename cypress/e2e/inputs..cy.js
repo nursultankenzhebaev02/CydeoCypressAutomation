@@ -6,7 +6,7 @@ describe("Input Forms Tests", () => {
     cy.visit("/registration_form");
   });
 
-  it.skip("Check different input box fields and verify", () => {
+  it("Check different input box fields and verify", () => {
     // Fill the form for username and other info
     cy.get('input[name="firstname"]').type("Harry");
     cy.get('input[name="lastname"]').type("Potter");
@@ -26,7 +26,7 @@ describe("Input Forms Tests", () => {
     cy.get('input[name="birthday"]').type("08/09/1203");
   });
 
-  it.skip("Check different radio buttons actions", () => {
+  it("Check different radio buttons actions", () => {
     cy.get('.radio').find('[type=radio]').then((radio => {
         //Get all radion buttons, select the first one and verify that it is checked
         cy.wrap(radio).first().check().should('be.checked'); // Cypress works in a chainable functions structure
@@ -43,7 +43,7 @@ describe("Input Forms Tests", () => {
         cy.wrap(radio).eq(2).should('not.be.checked');
     }))
   })
-  it.skip('Check selection of a single choise from a select dropdown', () => {
+  it('Check selection of a single choise from a select dropdown', () => {
     
     //Assert that dropdown is selected
     //cy.get('select[name="department"]').contains("Department of Engineering");
@@ -53,7 +53,7 @@ describe("Input Forms Tests", () => {
     cy.get('select[name="job_title"]').contains("SDET");
   })
 
-  it.skip("Check different checkboxes actions", () => {
+  it("Check different checkboxes actions", () => {
     //Get all checkboxes, select and verify
     cy.get('[type="checkbox"]').then((checkboxes) => {
     cy.wrap(checkboxes).eq(1).check().should('be.checked');

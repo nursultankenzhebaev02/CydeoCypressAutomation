@@ -38,7 +38,7 @@ describe("Context: My first test", () => {
       .click();
   });
 
-  it.only("Check Different Type of Assertions", () => {
+  it("Check Different Type of Assertions", () => {
     // Cypress itself bundles assertions provided by Chai, Sinon and JQuery libraries
     // Should Assertions: does the assertion directly on the object itself
     cy.get("#wooden_spoon")

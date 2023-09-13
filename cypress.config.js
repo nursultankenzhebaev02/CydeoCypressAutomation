@@ -3,9 +3,14 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://practice.cydeo.com/',
-    video: false, 
-    retries: 1, //If testing fails, it will try 2 more time
+    env: {
+      login:"/login",
+    },
+    video: false,
+    retries: 1,
     defaultCommandTimeout: 5000,
+    viewportHeight: 800,
+    viewportWidth: 1200,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

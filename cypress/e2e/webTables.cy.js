@@ -9,7 +9,7 @@ describe('Cypress WebTable Tests', { baseUrl: 'https://demoqa.com' }, () => {
     cy.visit('/webtables');
   });
 
-  it.skip('Check finding and editing a record', () => {
+  it('Check finding and editing a record', () => {
     /**
      * locate table body - then naviagte through this element to find Alden, then update info with another person
      * 1. get me table body
@@ -31,7 +31,7 @@ describe('Cypress WebTable Tests', { baseUrl: 'https://demoqa.com' }, () => {
 
   })
 
-  it.skip('Check finding and deleting record', () => {
+  it('Check finding and deleting record', () => {
     cy.get('.rt-tbody').contains('.rt-tr-group', 'Alden').then((row) => {
         //Click on Delete button for Alden record
         cy.wrap(row).find('[title="Delete"]').click();
@@ -46,7 +46,7 @@ describe('Cypress WebTable Tests', { baseUrl: 'https://demoqa.com' }, () => {
     cy.get('.rt-noData').should('contain', 'No rows found')
     .should('be.visible');
   })
-  it.skip('Check search for different age records', () => {
+  it('Check search for different age records', () => {
     //Define age groups
     const ageGroup = [29, 39, 45, 77];
     //For each age group perform same test scenario
@@ -64,7 +64,7 @@ describe('Cypress WebTable Tests', { baseUrl: 'https://demoqa.com' }, () => {
     }
     })
   })
-  it.skip('Check adding a new record - Bad code practice', () => {
+  it('Check adding a new record - Bad code practice', () => {
     // click on add button
     cy.get('#addNewRecordButton').click();
     // fill form
